@@ -67,6 +67,7 @@ public class NetworkManager : MonoBehaviour
     // Called when the player wants to create a game.
     public void CreateRoom ()
     {
+        
         // Set max players.
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = (byte)maxPlayers;
@@ -90,6 +91,11 @@ public class NetworkManager : MonoBehaviour
     {
         PhotonNetwork.JoinRoom(requestedRoomCode);
     }
+    public void AttemptJoinRandomRoom()
+    {
+        PhotonNetwork.JoinRandomRoom();
+    }
+    
 
     // Called when the player joins a room.
     public void OnJoinedRoom ()

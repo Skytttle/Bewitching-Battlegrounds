@@ -48,9 +48,6 @@ public class MenuUI : MonoBehaviour
 
     void Start()
     {
-        createGameButton.interactable = false;
-        joinGameButton.interactable = false;
-        settingsButton.interactable = false;
 
         if (PhotonNetwork.inRoom)
             EndGameReturnToLobby();
@@ -133,6 +130,7 @@ public class MenuUI : MonoBehaviour
 
     public void OnCreateGameButton()
     {
+        
         NetworkManager.inst.CreateRoom();
     }
 
