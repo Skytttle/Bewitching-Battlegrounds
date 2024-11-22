@@ -43,6 +43,13 @@ public class ConnectScreen : MonoBehaviour
             SetErrorText("Room code needs to be " + NetworkManager.inst.roomCodeLength + " characters long!");
     }
 
+    public void OnRandomConnectButton()
+    {
+  
+            NetworkManager.inst.AttemptJoinRandomRoom();
+     
+    }
+
     // Called after the player presses the "Connect" button and connects to the room.
     // Switches the screen to the lobby.
     public void OnJoinedRoom ()
@@ -53,8 +60,15 @@ public class ConnectScreen : MonoBehaviour
     // Called when the player fails to connect to a room.
     public void OnPhotonJoinRoomFailed (object[] codeAndMsg)
     {
+        print("CANT JOIN ROOM FAILED");
         SetErrorText("Failed to connect to game!");
     }
+    public void OnPhotonRandomJoinFailed(object[] codeAndMsg)
+    {
+        print("NO Random rooms found");
+        SetErrorText("No Random rooms found");
+    }
+
 
     // Sets the error text to display.
     // Called when an error/problem occurs when the "Connect" button is pressed.
